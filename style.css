@@ -1,0 +1,36 @@
+#wrapper {
+	padding-top: 50px;
+}
+
+#accordion > div > div > .panel-body {
+	/*padding: 0px;*/
+} 
+
+#accordion > div > .panel-heading {
+	padding-left: 8px;
+	padding-right: 8px;
+} 
+
+#resultsTable {
+	width: 100%;
+}
+
+.sidebar-nav > li {
+	line-height: inherit;
+}
+
+.cardImg {
+	width: 100px;
+}
+
+/*.radio > label > input , .checkbox > label > input {
+	margin-top: 13px;
+} */
+
+#totalLabel {
+	margin-top: 6px;
+}
+
+#collapseSpend {
+	line-height: 15px;
+}

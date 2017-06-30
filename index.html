@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CC filter POC</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Sidebar CSS -->
+	<link href="simple-sidebar.css" rel="stylesheet">
+
+	<!-- DataTable CSS -->
+	<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+
+	<!-- Sliders CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css" integrity="sha256-SimsGsu3ragCO+uhwd4Um5PUzUuc3Eg+pxshtVHXYpM=" crossorigin="anonymous" />
+
+	<!-- FontAwesome -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<!-- Custom CSS -->
+	<link href="style.css" rel="stylesheet">
+
+</head>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">CC filter POC</a>
+		</div>
+	</div>
+</nav>
+
+<div id="wrapper">
+
+
+
+	<!-- Sidebar -->
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+<!-- 			<li class="sidebar-brand">
+				<a href="#">
+					Filters
+				</a>
+			</li> -->
+			<li class="text-center">
+				<a href="#" class="btn btn-default text-center" id="repopulate">Apply Filters</a>
+			</li>
+			<li>
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseSpend"><i class="fa fa-usd" aria-hidden="true"></i> Spend</a>
+							</h4>
+						</div>
+						<div id="collapseSpend" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="travelSpend">Travel spend:</label>
+									<input id="travelSpend" default="300" type="text"/>
+								</div>
+								<div class="form-group">
+									<label for="restaurantSpend">Restaurant spend:</label>
+									<input id="restaurantSpend" type="text"/>
+								</div>
+								<div class="form-group">
+									<label for="gasSpend">Gas spend:</label>
+									<input id="gasSpend" type="text"/>
+								</div>
+								<div class="form-group">
+									<label for="grocerySpend">Grocery spend:</label>
+									<input id="grocerySpend" type="text"/>
+								</div>
+								<div class="form-group">
+									<label for="otherSpend">Other spend:</label>
+									<input id="otherSpend" type="text"/>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="email" id="totalLabel">Total:</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="totalSpend">1300</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseCredit"><i class="fa fa-tachometer" aria-hidden="true"></i> Credit Range</a>
+							</h4>
+						</div>
+						<div id="collapseCredit" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="radio">
+									<label><input type="radio" name="optradio">Excellent (760+)</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="optradio" checked>Good (700-759)</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="optradio">Fair (640-699)</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="optradio">Poor (580-639)</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="optradio">Very poor (579-)</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseRewards"><i class="fa fa-money" aria-hidden="true"></i> Rewards Type</a>
+							</h4>
+						</div>
+						<div id="collapseRewards" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="checkbox">
+									<label><input type="checkbox" value="pointsRewards" id="pointRewards" checked>Points</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="cashRewards" id="cashRewards" checked>Cashback</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="noRewards" id="noRewards" checked>No rewards</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFees"><i class="fa fa-percent" aria-hidden="true"></i> Fees</a>
+							</h4>
+						</div>
+						<div id="collapseFees" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="checkbox">
+									<label><input type="checkbox" value="noAnnualFee" id="noAnnualFee">No Annual Fee</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="noForeignTransactionFee" id="noForeignTransactionFee">No Foreign Transaction Fee</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseNetwork"><i class="fa fa-cc-visa" aria-hidden="true"></i> Network</a>
+							</h4>
+						</div>
+						<div id="collapseNetwork" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="checkbox">
+									<label><input type="checkbox" value="anyNetwork" id="anyNetwork" class="networkCheckbox" checked>Any</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="visaNetwork" id="visaNetwork" network="visa" class="networkCheckbox" checked>Visa</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="mastercardNetwork" id="mastercardNetwork" network="mastercard" class="networkCheckbox" checked>Mastercard</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="amexNetwork" id="amexNetwork" network="american express" class="networkCheckbox" checked>American Express</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseIssuer"><i class="fa fa-university" aria-hidden="true"></i> Issuer</a>
+							</h4>
+						</div>
+						<div id="collapseIssuer" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="checkbox">
+									<label><input type="checkbox" value="anyIssuer" id="anyIssuer" class="issuerCheckbox" checked>Any</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="amexIssuer" issuer="amex" class="issuerCheckbox" checked>American Express</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="bofAIssuer" issuer="ccbankofamerica" class="issuerCheckbox" checked>Bank of America</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="barclayIssuer" issuer="barclaycar" class="issuerCheckbox" checked>BarclayCard</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="capOneIssuer" issuer="cccapitalone" class="issuerCheckbox" checked>Capital One</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="chaseIssuer" issuer="ccchase" class="issuerCheckbox" checked>Chase</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="citiIssuer" issuer="cccitibank" class="issuerCheckbox" checked>Citi</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="creditOneIssuer" issuer="creditoneb" class="issuerCheckbox" checked>Credit One</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="wellsIssuer" issuer="wellsfargo" class="issuerCheckbox" checked>Wells Fargo</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTime"><i class="fa fa-calendar" aria-hidden="true"></i> Time with Card</a>
+							</h4>
+						</div>
+						<div id="collapseTime" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="radio">
+									<label><input type="radio" name="timeWithCard">1 year</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="timeWithCard" checked>2 years</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="timeWithCard">3+ years</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+	</div>
+	<!-- /#sidebar-wrapper -->
+
+	<!-- Page Content -->
+	<div id="page-content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>Card selector <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Filters Menu</a></h1>
+					<p>Following is a POC for a simple filter/card search tool. It's ugly, but should work.</p>
+					<table id="resultsTable">
+						<thead>
+							<tr>
+								<th>
+									Card Pic
+								</th>
+								<th>
+									Card Name
+								</th>
+								<th>
+									Rewards Rate
+								</th>
+								<th>
+									Sign-up Bonus
+								</th>
+								<th>
+									Total Rewards
+								</th>
+							</tr>
+						</thead>
+						<tbody id="resultsTableBody">
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /#page-content-wrapper -->
+
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Boostrap  -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<!-- Sliders -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/bootstrap-slider.min.js" integrity="sha256-Gdq5BxoczjhbEJLjrYKQ4fvBGx/EQrTWjDM2UrdTot0=" crossorigin="anonymous"></script>
+<!-- Logic -->
+<script src="logic.js"></script>
+</html>
